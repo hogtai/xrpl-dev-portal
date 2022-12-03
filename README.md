@@ -1,8 +1,10 @@
 # XRPL Dev Portal
+# Cleaned up the code for better formatting by Tait Hoglund
 
-The [XRP Ledger Dev Portal](https://xrpl.org) is the authoritative source for XRP Ledger documentation, including the `rippled` server, client libraries, and other open-source XRP Ledger software.
 
-To build the site locally:
+The [XRP Ledger Dev Portal](https://xrpl.org) is the authoritative source for XRP Ledger documentation, 
+including the `rippled` server, client libraries, and other open-source XRP Ledger software. To build the 
+site locally:
 
 1. Install [**Dactyl**](https://github.com/ripple/dactyl) and `lxml`:
 
