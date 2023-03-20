@@ -35,7 +35,7 @@ Multiple reporting mode servers can share access to the same network accessible 
 
     **Note:** If you choose to use Cassandra as the database, the disk requirements for `rippled` will be lower as the data will not be stored on your local disk.  
 
-2. In order to run reporting mode, you also need to run one or more `rippled` servers in [P2P mode](install-rippled.html). Ensure that you have at least one `rippled` server running in P2P mode. 
+2. In order to run reporting mode, you also need to run at least one `rippled` server in [P2P mode](install-rippled.html). 
 
 3. A compatible version of CMake must be installed.
 
@@ -102,7 +102,7 @@ NuDB is installed as part of your `rippled` build setup and does not require any
 
 ### Procedure
 
-1. Build `rippled` for reporting mode on [Ubuntu](build-run-rippled-ubuntu.html) or [macOS](build-run-rippled-macos.html).
+1. Build `rippled` for reporting mode on [Ubuntu or macOS](https://github.com/XRPLF/rippled/blob/release/BUILD.md).
 
     <!-- MULTICODE_BLOCK_START -->
 
@@ -116,7 +116,7 @@ NuDB is installed as part of your `rippled` build setup and does not require any
 
     *macOS*
 
-	cmake -B build -G "Unix Makefiles" -Dreporting=ON -DCMAKE_BUILD_TYPE=Debug
+	    cmake -B build -G "Unix Makefiles" -Dreporting=ON -DCMAKE_BUILD_TYPE=Debug
         cmake --build build --parallel $(nproc)
 
     <!-- MULTICODE_BLOCK_END -->
@@ -315,6 +315,7 @@ Loading: "/home/ubuntu/.config/ripple/rippled-reporting-example.cfg"
 ```
 
 ## Frequently Asked Questions
+<!-- STYLE_OVERRIDE: frequently -->
 
 **Do I need to run more than one instance of `rippled` to use reporting mode?**
 
@@ -339,7 +340,7 @@ When `rippled` runs in reporting mode, it only serves validated data from the ET
 
 **Is it possible to make traditional SQL queries to the relational database rather than using the API?**
 
-Technically, you *can* directly access the database if you want. However, the data is stored as binary blobs and you have to decode the blobs to access the component fields. This makes traditional SQL queries much less useful since they cannot find and filter the individual fields of the data.
+Technically, you *can* directly access the database if you want. However, the data is stored as binary blobs and you have to decode the blobs to access the data in them. This makes traditional SQL queries much less useful since they cannot find and filter the individual fields of the data.
 
 <!--{# common link defs #}--> 
 {% include '_snippets/rippled-api-links.md' %} 

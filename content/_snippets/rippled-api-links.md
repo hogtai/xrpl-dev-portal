@@ -118,6 +118,7 @@
   "account_objects",
   "account_offers",
   "account_tx",
+  "amm_info",
   "book_offers",
   "can_delete",
   "channel_authorize",
@@ -195,6 +196,7 @@
   "DeletableAccounts",
   "DepositAuth",
   "DepositPreauth",
+  "DisallowIncoming",
   "EnforceInvariants",
   "Escrow",
   "ExpandedSignerList",
@@ -222,6 +224,7 @@
   "Flow",
   "FlowCross",
   "FlowV2",
+  "ImmediateOfferKilled",
   "MultiSign",
   "MultiSignReserve",
   "NegativeUNL",
@@ -236,7 +239,8 @@
   "TicketBatch",
   "Tickets",
   "TickSize",
-  "TrustSetAuth"
+  "TrustSetAuth",
+  "XRPFees"
 ] %}
 
 {% for amd in amendment_names %}

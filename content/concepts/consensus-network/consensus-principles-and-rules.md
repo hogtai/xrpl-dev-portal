@@ -7,7 +7,7 @@ labels:
 ---
 # Consensus Principles and Rules
 
-The XRP Ledger is a universal payment system enabling users to transfer funds across national boundaries as seamlessly as sending an email. Like other peer-to-peer payment networks such as Bitcoin, the XRP Ledger enables peer-to-peer transaction settlement across a decentralized network of computers. Unlike other digital currency protocols, the XRP Ledger allows users to denominate their transactions with any currency they prefer, including fiat currencies, digital currencies and other forms of value, in addition to XRP (the native asset of the XRP Ledger).
+The XRP Ledger is a universal payment system enabling users to transfer funds across national boundaries as seamlessly as sending an email. Like other peer-to-peer payment networks such as Bitcoin, the XRP Ledger enables peer-to-peer transaction settlement across a decentralized network of computers. Unlike other digital currency protocols, the XRP Ledger allows users to denominate their transactions with any currency they prefer, including fiat currencies, digital currencies and other forms of value, and XRP (the native asset of the XRP Ledger).
 
 The XRP Ledger's technology enables near real-time settlement (three to six seconds) and contains a decentralized exchange, where payments automatically use the cheapest currency trade orders available to bridge currencies.
 
@@ -22,7 +22,7 @@ As a cryptographic system, the owners of XRP Ledger accounts are identified by _
 
 ### The Double Spend Problem
 
-The "double spend" problem is a fundamental challenge to operating any sort of payment system. The problem comes from the requirement that when money is spent in one place, it can't also be spent in another place. More generally, the problem occurs when you have any two transactions such that either one is valid but not both together.
+The "double spend" problem is a fundamental challenge to any digital payment system. The problem comes from the requirement that when money is spent in one place, it can't also be spent in another place. More generally, the problem occurs when you have any two transactions such that either one is valid but not both together.
 
 Suppose Alice, Bob, and Charlie are using a payment system, and Alice has a balance of $10. For the payment system to be useful, Alice must be able to send her $10 to Bob, or to Charlie. However, if Alice tries to send $10 to Bob and also send $10 to Charlie at the same time, that's where the double spend problem comes in.
 

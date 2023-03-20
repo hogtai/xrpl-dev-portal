@@ -12,7 +12,7 @@ status: not_enabled
 
 {% include '_snippets/amm-disclaimer.md' %}
 
-Vote on the trading fee for an Automated Market Maker instance. Up to 8 accounts can vote in proportion to the amount of the AMM's LP Tokens they hold. Each new vote re-calculates the AMM's trading fee based on a weighted average of the votes.
+Vote on the trading fee for an [Automated Market Maker](automated-market-makers.html) instance. Up to 8 accounts can vote in proportion to the amount of the AMM's LP Tokens they hold. Each new vote re-calculates the AMM's trading fee based on a weighted average of the votes.
 
 ## Example {{currentpage.name}} JSON
 
@@ -44,7 +44,7 @@ Vote on the trading fee for an Automated Market Maker instance. Up to 8 accounts
 
 ## Error Cases
 
-In addition to errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
+Besides errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|

@@ -19,7 +19,7 @@ name: FAQ
 
 #### Is XRPL a private blockchain, owned by Ripple?
 
-No, the XRP Ledger is a decentralized, public blockchain. Any changes that would impact transaction processing or consensus need to be approved by at least 80%% of the network. Ripple is a contributor to the network, but its rights are the same as those of other contributors. In terms of validation, there are 150+ validators on the network with 35+ on the default Unique Node List (see [“What are Unique Node Lists (UNLs)?” below](#what-are-unique-node-lists-unls)) — Ripple runs 6 of these nodes.
+No, the XRP Ledger is a decentralized, public blockchain. Any changes that would impact transaction processing or consensus need to be approved by at least 80%% of the network. Ripple is a contributor to the network, but its rights are the same as those of other contributors. In terms of validation, there are 150+ validators on the network with 35+ on the default Unique Node List (see [“What are Unique Node Lists (UNLs)?” below](#what-are-unique-node-lists-unls)) — Ripple runs [only 2](https://foundation.xrpl.org/2022/10/06/unl-update-october-2022) of these nodes.
 
 #### Isn’t Proof of Work the best validation mechanism?
 
@@ -27,7 +27,7 @@ Proof of Work (PoW) was the first mechanism to solve the double spend problem wi
 
 #### How can a blockchain be sustainable?
 
-It’s been widely reported that Bitcoin’s energy consumption, as of 2021, is equivalent to that used by Argentina, with much of the electricity Bitcoin miners use coming from polluting sources. The XRP Ledger confirms transactions through a “[consensus](intro-to-consensus.html)” mechanism - which does not waste energy like proof of work does - and leverages carbon offsets to be [one of the first truly carbon neutral blockchains](https://ripple.com/ripple-press/ripple-leads-sustainability-agenda-to-achieve-carbon-neutrality-by-2030/). Explore the energy consumption of XRP compared to cash, credit cards and other popular cryptocurrencies with the [Green Currency Calculator](carbon-calculator.html).
+It’s been widely reported that Bitcoin’s energy consumption, as of 2021, is equivalent to that used by Argentina, with much of the electricity Bitcoin miners use coming from polluting sources. The XRP Ledger confirms transactions through a “[consensus](intro-to-consensus.html)” mechanism - which does not waste energy like proof of work does - and leverages carbon offsets to be [one of the first truly carbon neutral blockchains](https://ripple.com/ripple-press/ripple-leads-sustainability-agenda-to-achieve-carbon-neutrality-by-2030/).
 
 #### Can currencies other than XRP be traded through XRPL?
 
@@ -35,8 +35,7 @@ Yes, the XRP Ledger was built specifically to be able to tokenize arbitrary asse
 
 #### Isn’t XRPL only for payments?
 
-Although XRPL was initially developed for payment use cases, both the ledger and its native digital asset XRP are increasingly popular for a range of innovative blockchain use cases. New standards proposals for issuing NFTs, XRPL Labs’ hooks amendment for smart contract functionality, and federated sidechains are all currently works in progress.
-
+Although XRPL was initially developed for payment use cases, both the ledger and its native digital asset XRP are increasingly popular for a range of innovative blockchain use cases such as NFTs. New standards proposals for an automated market maker (AMM), XRPL Labs’ hooks amendment for smart contract functionality, and federated sidechains are all currently works in progress.
 
 ## Validators and Unique Node Lists
 
@@ -104,9 +103,9 @@ For recommendations and best practices, see [Run `rippled` as a Validator](run-r
 #### If the dUNL has the most influence on the network, then is the XRPL centralized?
 Validators can choose to not use the dUNL, or any widely-used UNL for that matter. Anyone can create a new UNL at any time.
 
-There can be multiple UNLs in use on the same network. Each operator can customize their server's own UNL or choose to follow a different recommended list. All these servers can still operate on the same chain and reach consensus with one another.
+There can be multiple UNLs in use on the same network. Each operator can customize their server's own UNL or choose to follow a different recommended list. All these servers can still run the same chain and reach consensus with one another.
 
-However, if your UNL does not have sufficient overlap with the UNLs used by others, there is a risk that your server forks away from the rest of the network. As long as your UNL has > 90% overlap with the one used by people you're transacting with, you are completely safe from forking. If you have less overlap, you may still be able to follow the same chain, but the chances of forking increase with lower overlap, worse network connectivity, and the presence of unreliable or malicious validators on your UNL.
+However, if your UNL does not have enough overlap with the UNLs used by others, there is a risk that your server forks away from the rest of the network. As long as your UNL has > 90% overlap with the one used by people you're transacting with, you are completely safe from forking. If you have less overlap, you may still be able to follow the same chain, but the chances of forking increase with lower overlap, worse network connectivity, and the presence of unreliable or malicious validators on your UNL.
 
 
 ## Role of XRP

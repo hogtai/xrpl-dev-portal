@@ -268,7 +268,7 @@ The `state` object may have some arrangement of the following fields:
 
 | `Field`                          | Type            | Description             |
 |:---------------------------------|:----------------|:------------------------|
-| `amendment_blocked`              | Boolean         | _(May be omitted)_ If `true`, this server is [amendment blocked](amendments.html#amendment-blocked). If the server is not amendment blocked, the response omits this field. [New in: rippled 0.80.0][] |
+| `amendment_blocked`              | Boolean         | _(May be omitted)_ If `true`, this server is [amendment blocked](amendments.html#amendment-blocked-servers). If the server is not amendment blocked, the response omits this field. [New in: rippled 0.80.0][] |
 | `build_version`                  | String          | The version number of the running `rippled` version. |
 | `complete_ledgers`               | String          | Range expression indicating the sequence numbers of the ledger versions the local `rippled` has in its database. It is possible to be a disjoint sequence, e.g. "2500-5000,32570-7695432". If the server does not have any complete ledgers (for example, it recently started syncing with the network), this is the string `empty`. |
 | `closed_ledger`                  | Object          | _(May be omitted)_ Information on the most recently closed ledger that has not been validated by consensus. If the most recently validated ledger is available, the response omits this field and includes `validated_ledger` instead. The member fields are the same as the `validated_ledger` field. |
@@ -291,7 +291,7 @@ The `state` object may have some arrangement of the following fields:
 | `pubkey_validator`               | String          | _(Admin only)_ Public key used by this node to sign ledger validations. This _validation key pair_ is derived from the `[validator_token]` or `[validation_seed]` config field. |
 | `reporting`                         | Object          | _([Reporting mode][] servers only)_ Information about this server's reporting-mode specific configurations. |
 | `reporting.etl_sources`             | Array           | _([Reporting mode][] servers only)_ A list of P2P-mode servers this reporting mode is retrieving data from. Each entry in this array is an [ETL Source object](#etl-source-object). |
-| `reporting.is_writer`               | Boolean         | _([Reporting mode][] servers only)_ If `true`, this server is writing to the external database with ledger data. If `false`, it is not currenty writing, possibly because another reporting mode server is currently populating a shared database, or because it's configured as read-only. |
+| `reporting.is_writer`               | Boolean         | _([Reporting mode][] servers only)_ If `true`, this server is writing to the external database with ledger data. If `false`, it is not currently writing, possibly because another reporting mode server is currently populating a shared database, or because it's configured as read-only. |
 | `reporting.last_publish_time`       | String          | _([Reporting mode][] servers only)_ An ISO 8601 timestamp indicating when this server last saw a new validated ledger from any of its P2P mode sources. |
 | `server_state`                   | String          | A string indicating to what extent the server is participating in the network. See [Possible Server States](rippled-server-states.html) for more details. |
 | `server_state_duration_us`       | Number          | The number of consecutive microseconds the server has been in the current state. [New in: rippled 1.2.0][] |
@@ -308,7 +308,7 @@ The `state` object may have some arrangement of the following fields:
 | `validated_ledger.reserve_inc`   | Number          | The [owner reserve](reserves.html) for each item an account owns, as of the most recent validated ledger version. |
 | `validated_ledger.seq`           | Number          | The [ledger index][] of the most recently validated ledger version. |
 | `validation_quorum`              | Number          | Minimum number of trusted validations required to validate a ledger version. Some circumstances may cause the server to require more validations. |
-| `validator_list_expires`         | Number          | _(Admin only)_ When the current validator list will expire, in [seconds since the Ripple Epoch][], or 0 if the server has yet to load a published validator list. [New in: rippled 0.80.1][] |
+| `validator_list_expires`         | Number          | _(Admin only)_ When the current validator list expires, in [seconds since the Ripple Epoch][], or 0 if the server has yet to load a published validator list. [New in: rippled 0.80.1][] |
 
 [Reporting mode]: rippled-server-modes.html
 

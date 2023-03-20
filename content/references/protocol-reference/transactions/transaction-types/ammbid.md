@@ -12,7 +12,7 @@ status: not_enabled
 
 {% include '_snippets/amm-disclaimer.md' %}
 
-Bid on an Automated Market Maker's (AMM's) auction slot. If you win, you can trade against the AMM at a discounted fee until you are outbid or 24 hours have passed. If you are outbid before 24 hours have passed, you are refunded part of the cost of your bid based on how much time remains.
+Bid on an [Automated Market Maker](automated-market-makers.html)'s (AMM's) auction slot. If you win, you can trade against the AMM at a discounted fee until you are outbid or 24 hours have passed. If you are outbid before 24 hours have passed, you are refunded part of the cost of your bid based on how much time remains.
 
 You bid using the AMM's LP Tokens; the amount of a winning bid is returned to the AMM, decreasing the outstanding balance of LP Tokens.
 
@@ -61,11 +61,11 @@ You bid using the AMM's LP Tokens; the amount of a winning bid is returned to th
 | `Asset2`       | Object              | STIssue           | Yes       | The definition for the other asset in the AMM's pool. In JSON, this is an object with `currency` and `issuer` fields (omit `issuer` for XRP). |
 | `BidMin`       | [Currency Amount][] | Amount            | No        | Pay at least this amount for the slot. Setting this value higher makes it harder for others to outbid you. If omitted, pay the minimum necessary to win the bid. |
 | `BidMax`       | [Currency Amount][] | Amount            | No        | Pay at most this amount for the slot. If the cost to win the bid is higher than this amount, the transaction fails. If omitted, pay as much as necessary to win the bid. |
-| `AuthAccounts` | Array               | STArray           | No        | A list of up to 4 additional accounts that you allow to trade at the discounted fee. This cannot include the address of the transaction sender. Each of these objects should be an [AuthAccount object](#authaccount-objects). |
+| `AuthAccounts` | Array               | STArray           | No        | A list of up to 4 additional accounts that you allow to trade at the discounted fee. This cannot include the address of the transaction sender. Each of these objects should be an [Auth Account object](#auth-account-objects). |
 
 You cannot specify both `BidMin` and `BidMax`.
 
-### AuthAccount Objects
+### Auth Account Objects
 
 Each member of the `AuthAccounts` array must be an object with the following field:
 
@@ -119,8 +119,8 @@ As a special case, during the final (20th) interval of the auction slot, the ref
 **Note:** As with all XRP Ledger times, transaction processing uses the [official close time](ledgers.html#ledger-close-times) of the _previous_ ledger, which can result in a difference of up to about 10 seconds from real time.
 
 
-## AMM Cases previous holder
-In addition to errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
+## Error Cases
+Besides errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|

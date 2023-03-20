@@ -33,9 +33,9 @@ _(Added by the [NonFungibleTokensV1_1 amendment][].)_
 | Field         | JSON Type           | [Internal Type][] | Description        |
 |:--------------|:--------------------|:------------------|:-------------------|
 | `Owner`       | String              | AccountID         | _(Optional)_ Who owns the corresponding `NFToken`. If the offer is to buy a token, this field must be present and it must be different than the `Account` field (since an offer to buy a token one already holds is meaningless). If the offer is to sell a token, this field must not be present, as the owner is, implicitly, the same as the `Account` (since an offer to sell a token one doesn't already hold is meaningless). |
-| `NFTokenID`     | String              | Hash256           | Identifies the `NFToken` object that the offer references. |
+| `NFTokenID`   | String              | Hash256           | Identifies the `NFToken` object that the offer references. |
 | `Amount`      | [Currency Amount][] | Amount            | Indicates the amount expected or offered for the corresponding `NFToken`. The amount must be non-zero, except where this is an offer to sell and the asset is XRP; then, it is legal to specify an amount of zero, which means that the current owner of the token is giving it away, gratis, either to anyone at all, or to the account identified by the `Destination` field. |
-| `Expiration`  | Number              | UInt32            | _(Optional)_ Indicates the time after which the offer will no longer be valid. The value is the number of [seconds since the Ripple Epoch][]. |
+| `Expiration`  | Number              | UInt32            | _(Optional)_ Time after which the offer is no longer active, in [seconds since the Ripple Epoch][]. |
 | `Destination` | String              | AccountID         | _(Optional)_ If present, indicates that this offer may only be accepted by the specified account. Attempts by other accounts to accept this offer MUST fail. |
 
 
@@ -50,7 +50,7 @@ Transactions of the NFTokenCreateOffer type support additional values in the [`F
 
 ## Error Cases
 
-In addition to errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
+Besides errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
 
 | Error Code                       | Description                               |
 |:---------------------------------|:------------------------------------------|
@@ -65,6 +65,7 @@ In addition to errors that can occur for all transactions, {{currentpage.name}} 
 | `tecNO_ENTRY`                    | The `NFToken` is not owned by the expected account. |
 | `tecNO_ISSUER`                   | The issuer specified in the `Amount` field does not exist. |
 | `tecNO_LINE`                     | The `Amount` field is denominated in fungible tokens, but the `NFToken`'s issuer does not have a trust line for those tokens and the `NFToken` does not have the [`lsfTrustLine` flag](nftoken.html#nftoken-flags) enabled. |
+| `tecNO_PERMISSION`               | The `Destination` account blocks incoming NFTokenOffers. _(Requires the [DisallowIncoming amendment][] :not_enabled:)_
 | `tecUNFUNDED_OFFER`              | For a buy offer, the sender does have the funds specified in the `Amount` field available. If the `Amount` is XRP, this could be due to the reserve requirement; if the `Amount` is denominated in fungible tokens, this could be because they are [frozen](freezes.html). |
 | `tefNFTOKEN_IS_NOT_TRANSFERABLE` | The `NFToken` has the [`lsfTransferable` flag](nftoken.html#nftoken-flags) disabled and this transaction would not transfer the `NFToken` to or from the issuer. |
 

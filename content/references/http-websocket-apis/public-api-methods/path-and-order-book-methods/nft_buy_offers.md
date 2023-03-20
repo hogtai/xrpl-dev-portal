@@ -43,7 +43,7 @@ An example of the request format:
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html?server=wss%3A%2F%2Fxls20-sandbox.rippletest.net%3A51233%2F#nft_buy_offers)
+[Try it! >](websocket-api-tool.html#nft_buy_offers)
 
 The request includes the following parameters:
 
@@ -108,7 +108,7 @@ The response follows the [standard format][], with a successful result containin
 |:---------|:-----------|:-----------------------------------------------------|
 | `nft_id` | String     | The NFToken these offers are for, as specified in the request. |
 | `offers` | Array      | A list of buy offers for the token. Each of these is formatted as a **Buy Offer** (see below). |
-| `limit`  | Number     | _(May be omitted)_The `limit`, as specified in the request. |
+| `limit`  | Number     | _(May be omitted)_ The `limit`, as specified in the request. |
 | `marker` | [Marker][] | _(May be omitted)_ Server-defined value indicating the response is paginated. Pass this to the next call to resume where this call left off. Omitted when there are no pages of information after this one. |
 
 ### Buy Offers

@@ -12,7 +12,7 @@ status: not_enabled
 
 {% include '_snippets/amm-disclaimer.md' %}
 
-Withdraw assets from an Automated Market-Maker (AMM) instance by returning the AMM's liquidity provider tokens (LP Tokens).
+Withdraw assets from an [Automated Market Maker](automated-market-makers.html) (AMM) instance by returning the AMM's liquidity provider tokens (LP Tokens).
 
 ## Example {{currentpage.name}} JSON
 
@@ -50,16 +50,16 @@ Withdraw assets from an Automated Market-Maker (AMM) instance by returning the A
 | `EPrice`     | [Currency Amount][] | Amount            | No        | The minimum effective price, in LP Token returned, to pay per unit of the asset to withdraw. |
 | `LPTokenIn`  | [Currency Amount][] | Amount            | No        | How many of the AMM's LP Tokens to redeem. |
 
-**Note:** For a two-asset withdrawal, it is possible for `Asset` to correspond to _either_ `Amount` or `Amount2` as long as `Asset2` corresponds to the other one. It is recommended to match them (that is, `Amount2` is an amount of the asset defined in `Asset2`) because it is less confusing that way.
+**Note:** For a double-asset withdrawal, it is possible for `Asset` to correspond to _either_ `Amount` or `Amount2` as long as `Asset2` corresponds to the other one. It is recommended to match them (that is, `Amount2` is an amount of the asset defined in `Asset2`) because it is less confusing that way.
 
 ### AMMWithdraw Modes
 
-This transaction has several modes, depending on which flags you specify. Each mode expects a specific combination of fields. The modes fall into two categories: 
+This transaction has several modes, depending on which flags you specify. Each mode expects a specific combination of fields. The modes fall into two categories:
 
 - **Double-asset withdrawals**, in which you receive both assets from the AMM's pool in proportions that match their balances there. These withdrawals are not subject to a fee.
-- **Single-asset withdrawals**, in which you receive one asset from the AMM's pool. The AMM charges a fee based on how much your deposit shifts the balance of assets in the pool. Depending on the withdraw mode, the amount of the fee can be added to the amount of LP Tokens paid in, or debited from the amount of the asset paid out. 
+- **Single-asset withdrawals**, in which you receive one asset from the AMM's pool. The AMM charges a fee based on how much your deposit shifts the balance of assets in the pool. Depending on the withdraw mode, the amount of the fee can be added to the amount of LP Tokens paid in, or debited from the amount of the asset paid out.
 
-The following modes are for a **double-asset withdrawal**:
+The following combinations of fields indicate a **double-asset withdrawal**:
 
 | Flag Name(s)    | Flag Value   | Fields Specified       | Meaning |
 |-----------------|--------------|------------------------|---------|
@@ -80,7 +80,7 @@ Any other combination of these fields is invalid.
 
 ### Single Asset Withdrawal Fee
 
-The fee for a single asset withdrawal is calculated to be the same as if you had performed a double-asset withdrawal and then used the AMM to trade all of the other asset for the one you are withdrawing. The trading fee applies to the amount you would need to trade for, but not to the rest of the withdrawal.
+The fee for a single asset withdrawal is calculated to be the same as if you had done a double-asset withdrawal and then used the AMM to trade all of the other asset for the one you are withdrawing. The trading fee applies to the amount you would need to trade for, but not to the rest of the withdrawal.
 
 <!-- TODO: add a formula and example calculation(s) of single-asset withdrawal fees -->
 
@@ -99,12 +99,12 @@ Transactions of the AMMWithdraw type support additional values in the [`Flags` f
 | `tfOneAssetLPToken`     | `0x00200000` | 2097152       | Perform a single-asset withdrawal and receive the specified amount of LP Tokens. |
 | `tfLimitLPToken`        | `0x00400000` | 4194304       | Perform a single-asset withdrawal with a specified effective price. |
 
-You must specify **exactly one** of these flags, in addition to any [global flags](transaction-common-fields.html#global-flags).
+You must specify **exactly one** of these flags, plus any [global flags](transaction-common-fields.html#global-flags).
 
 
 ## Error Cases
 
-In addition to errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
+Besides errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
 
 | Error Code               | Description                                  |
 |:-------------------------|:---------------------------------------------|
@@ -112,7 +112,7 @@ In addition to errors that can occur for all transactions, {{currentpage.name}} 
 | `tecAMM_BALANCE`         | The transaction would withdraw all of one asset from the pool, or rounding would cause a "withdraw all" to leave a nonzero amount behind. |
 | `tecAMM_FAILED_WITHDRAW` | The conditions on the withdrawal could not be satisfied; for example, the requested effective price in the `EPrice` field is too low. |
 | `tecAMM_INVALID_TOKENS`  | The AMM for this token pair does not exist, or one of the calculations resulted in a withdrawal amount rounding to zero. |
-| `tecINSUF_RESERVE_LINE`  | The sender of this transaction does meet the increased [reserve requirement](reserves.html) of processing this transaction, probably because they need at least one new trust line to hold one of the assets to be withdrawn, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
+| `tecINSUF_RESERVE_LINE`  | The sender of this transaction does not meet the increased [reserve requirement](reserves.html) of processing this transaction, probably because they need at least one new trust line to hold one of the assets to be withdrawn, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
 | `tecNO_AUTH`             | The sender is not authorized to hold one of the deposit assets. |
 | `temBAD_AMM_OPTIONS`     | The transaction specified an invalid combination of fields. See [AMMWithdraw Modes](#ammwithdraw-modes). |
 | `temBAD_AMM_TOKENS`      | The transaction specified the LP Tokens incorrectly; for example, the `issuer` is not the AMM's associated AccountRoot address or the `currency` is not the currency code for this AMM's LP Tokens, or the transaction specified this AMM's LP Tokens in one of the asset fields.  |

@@ -1,7 +1,7 @@
 ---
 html: ammcreate.html
 parent: transaction-types.html
-blurb: Create a new AMM instance for trading a given pair of assets.
+blurb: Create a new Automated Market Maker for trading a given pair of assets.
 labels:
   - AMM
 status: not_enabled
@@ -12,7 +12,7 @@ status: not_enabled
 
 {% include '_snippets/amm-disclaimer.md' %}
 
-Create a new Automated Market-Maker (AMM) instance for trading a pair of assets ([fungible tokens](tokens.html) or [XRP](xrp.html)).
+Create a new [Automated Market Maker](automated-market-makers.html) (AMM) instance for trading a pair of assets ([fungible tokens](tokens.html) or [XRP](xrp.html)).
 
 Creates both an [AMM object][] and a [special AccountRoot object](accountroot.html#special-amm-accountroot-objects) to represent the AMM. Also transfers ownership of the starting balance of both assets from the sender to the created `AccountRoot` and issues an initial balance of liquidity provider tokens (LP Tokens) from the AMM account to the sender.
 
@@ -50,7 +50,7 @@ One or both of `Amount` and `Amount2` can be [tokens](tokens.html); at most one 
 
 ## Error Cases
 
-In addition to errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
+Besides errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
 
 | Error Code          | Description                                  |
 |:--------------------|:---------------------------------------------|

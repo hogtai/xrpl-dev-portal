@@ -16,7 +16,7 @@ labels:
 
 <!-- Source for this specific tutorial's interactive bits: -->
 <script type="application/javascript" src="assets/js/tutorials/use-tickets.js"></script>
-{% set use_network = "Devnet" %}<!--TODO: change to Testnet eventually. NOTE, Testnet is a few days behind Mainnet in getting the amendment one enabled -->
+{% set use_network = "Testnet" %}
 
 This page provides JavaScript examples that use the [xrpl.js](https://js.xrpl.org/) library. See [Get Started Using JavaScript](get-started-using-javascript.html) for setup instructions.
 
@@ -191,7 +191,7 @@ _JavaScript_
 
 > **Tip:** If you don't plan to submit the TicketCreate transaction right away, you should be sure not to set the `LastLedgerSequence` so that the transaction does not expire. The way you do this varies by library:
 >
-> - **xrpl.js:** Specify `"LastLedgerSequence": null` when autofilling the transaction.
+> - **xrpl.js:** Specify `"LastLedgerSequence": null` when auto-filling the transaction.
 > - **`rippled`:** Omit `LastLedgerSequence` from the prepared instructions. The server does not provide a value by default.
 
 {{ start_step("Prepare Ticketed Tx") }}
@@ -232,7 +232,7 @@ Ticketed transactions go through the consensus process the same way that Sequenc
 
 ## With Multi-Signing
 
-One of the main use cases for Tickets is to be able to collect signatures for several [multi-signed transactions](multi-signing.html) in parallel. By using a Ticket, you can send a multi-signed transaction as soon as it is fully signed and ready to go, without worrying about which one will be ready first.
+One of the main use cases for Tickets is to be able to collect signatures for several [multi-signed transactions](multi-signing.html) in parallel. By using a Ticket, you can send a multi-signed transaction as soon as it is fully signed and ready to go, without worrying about which one will be ready first. <!-- STYLE_OVERRIDE: will -->
 
 In this scenario, [step 8, "Prepare Ticketed Transaction"](#8-prepare-ticketed-transaction) is slightly different. Instead of preparing and signing all at once, you would follow the steps for [sending any multi-signed transaction](send-a-multi-signed-transaction.html): first prepare the transaction, then circulate it among trusted signers to collect their signatures, and finally combine the signatures into the final multi-signed transaction.
 

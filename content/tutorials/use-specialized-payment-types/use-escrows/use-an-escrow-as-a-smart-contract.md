@@ -10,7 +10,7 @@ labels:
 
 A smart contract is a blockchain-based program that encodes the conditions and fulfillment of an agreement between two or more parties and automatically fulfills the terms of the agreement once conditions are met. A smart contract can help you exchange anything of value in a transparent, traceable, tamper-resistant, and irreversible way.
 
-The benefit of encoding a smart contract into a blockchain is that it enables the contract to be securely performed without traditional third-parties, like financial or legal institutions. Instead, the contract is supervised by the distributed, decentralized network of computers that run the blockchain.
+The benefit of encoding a smart contract into a blockchain is that it enables the contract to be securely carried out without traditional third-parties, like financial or legal institutions. Instead, the contract is supervised by the distributed, decentralized network of computers that run the blockchain.
 
 You can use XRP Ledger escrows as smart contracts that release XRP after a certain time has passed or after a cryptographic condition has been fulfilled. In this case, we'll use an escrow as a smart contract that releases XRP after a cryptographic condition has been fulfilled.
 
@@ -83,7 +83,7 @@ To create the escrow as a smart contract, the participants must first define the
 
 Because participants want to create a conditionally-held escrow to provide the smart contract, they need a condition value and a fulfillment value. In this scenario, the participant that creates these values is the neutral party planner (oracle).
 
-The party planner generates the condition and fulfillment values. The party planner provides the condition value to the party host, who creates the escrow. The part planner also provides the condition to the party band so that they know that this is the right condition.
+The party planner generates the condition and fulfillment values. The party planner provides the condition value to the party host, who creates the escrow. The party planner also provides the condition to the party band so that they know that this is the right condition.
 
 The party planner must keep the fulfillment value a secret. Anyone can use the condition and fulfillment values to finish the escrow. Most often, the receiver finishes the escrow because they're the ones who are motivated to get paid.
 
